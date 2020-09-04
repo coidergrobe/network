@@ -25,7 +25,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ListNewsActivity extends AppCompatActivity {
-    RecyclerView rvNews;
+    RecyclerView rvListNews;
     List<Item> listData;
     NewsAdapter adapter;
 
@@ -41,9 +41,9 @@ public class ListNewsActivity extends AppCompatActivity {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
 
-        RecyclerView rvNews = findViewById(R.id.rvNews);
-        rvNews.setLayoutManager(layoutManager);
-        rvNews.setAdapter(adapter);
+        rvListNews = findViewById(R.id.rvListNews);
+        rvListNews.setLayoutManager(layoutManager);
+        rvListNews.setAdapter(adapter);
 
         adapter.setiOnClick(new NewsOnClick() {
             @Override
@@ -71,7 +71,6 @@ public class ListNewsActivity extends AppCompatActivity {
                     adapter.reloadData(listData);
                 }
             }
-
 
             @Override
             public void onFailure(Call<List<Item>> call, Throwable t) {
